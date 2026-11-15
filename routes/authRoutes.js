@@ -8,6 +8,19 @@ import db from "../config/db.js";
 
 const router = express.Router();
 
+// Helper: Normalize Google OAuth Callback URL
+const getGoogleCallbackURL = () => {
+  const envUrl = (process.env.GOOGLE_CALLBACK_URL || "").trim();
+  if (!envUrl) {
+    return "http://localhost:3000/auth/google/secrets";
+  }
+  if (!envUrl.includes("/auth/google/secrets")) {
+    const baseUrl = envUrl.replace(/\/+$/, "");
+    return `${baseUrl}/auth/google/secrets`;
+  }
+  return envUrl;
+};
+
 // ---------- Google OAuth Strategy ----------
 passport.use(
   "google",
@@ -15,9 +28,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL:
-        process.env.GOOGLE_CALLBACK_URL ||
-        "http://localhost:3000/auth/google/secrets",
+      callbackURL: getGoogleCallbackURL(),
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
     },
     async (accessToken, refreshToken, profile, cb) => {
