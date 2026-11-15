@@ -1,0 +1,61 @@
+# ==============================================================================
+# QueryX - Project Dependencies & System Requirements
+# ==============================================================================
+#
+# NOTE: QueryX is a Node.js / Express application (ES Modules).
+# Primary package management is handled via npm / package.json.
+# This file provides the complete dependency and version specification.
+#
+# To install all packages automatically:
+#   npm install
+# ==============================================================================
+
+# Core Application Framework & Routing
+express==5.1.0
+body-parser==2.2.0
+dotenv==17.2.1
+
+# View Engine & Frontend Templating
+ejs==3.1.10
+
+# Database Driver
+pg==8.16.3
+
+# Authentication & Session Management
+express-session==1.18.2
+passport==0.7.0
+passport-google-oauth2==0.2.0
+passport-local==1.0.0
+bcrypt==6.0.0
+
+# Payment Gateway
+razorpay==2.9.8
+
+# Artificial Intelligence & LLM SDKs
+@google/genai==1.12.0
+@google/generative-ai==0.24.1
+node-fetch==3.3.2
+
+# File Upload Handling
+multer==2.0.2
+
+# Document & Content Parsing
+pdf-parse==1.1.1
+mammoth==1.10.0
+tesseract.js==6.0.1
+
+# System & Utility Helpers
+path==0.12.7
+url==0.11.4
+fs==0.0.1-security
+
+# ==============================================================================
+# System & Runtime Prerequisites:
+# ==============================================================================
+# Node.js: >= 18.0.0 (Tested on Node.js v22.x)
+# PostgreSQL: >= 14.0 (Tested on PostgreSQL 16)
+# Tesseract OCR Language Data: eng.traineddata (included in root repository)
+# Google Gemini API Key: Required (Google AI Studio)
+# Google Cloud OAuth 2.0 Credentials: Required for Google Sign-in
+# Razorpay API Credentials: Required for QueryX Pro Subscriptions
+# ==============================================================================

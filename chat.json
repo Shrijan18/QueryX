@@ -1,0 +1,74 @@
+[
+  {
+    "user_msg": "hi",
+    "bot_msg": "Hi there! How can I help you today?\n"
+  },
+  {
+    "user_msg": "write para on ai of 200 words",
+    "bot_msg": "Okay, here's a 200-word paragraph on AI:\n\nArtificial intelligence (AI) is rapidly transforming numerous aspects of modern life. At its core, AI involves creating computer systems capable of performing tasks that typically require human intelligence, such as learning, problem-solving, and decision-making. Machine learning, a key subset of AI, enables systems to improve their performance on a specific task through experience, without explicit programming. This is achieved through algorithms that identify patterns in data and make predictions or decisions based on those patterns.\n\nAI is already prevalent in many applications we use daily, from virtual assistants like Siri and Alexa to recommendation systems on platforms like Netflix and Amazon. It's also playing a crucial role in fields like healthcare, where AI is used for diagnosing diseases and developing personalized treatments, and in transportation, with the development of self-driving cars. While the potential benefits of AI are vast, there are also concerns about its impact on employment and the ethical considerations surrounding its use. As AI continues to evolve, it's important to address these concerns and ensure that it is developed and used responsibly for the benefit of society.\n"
+  },
+  {
+    "user_msg": "hi",
+    "bot_msg": "Hi there! How can I help you today?\n"
+  },
+  {
+    "user_msg": "Hello",
+    "bot_msg": "Hello! How can I help you today?\n"
+  },
+  {
+    "user_msg": "how are u",
+    "bot_msg": "I'm doing well, thank you for asking! How about you?\n"
+  },
+  {
+    "user_msg": "describe python in one line",
+    "bot_msg": "Python is a high-level, interpreted, general-purpose programming language known for its readability.\n"
+  },
+  {
+    "user_msg": "helo",
+    "bot_msg": "Hello! How can I help you today?\n"
+  },
+  {
+    "user_msg": "what is ur name",
+    "bot_msg": "My name is a Large Language Model.\n"
+  },
+  {
+    "user_msg": "ooh nicee name",
+    "bot_msg": "Thank you! I'm glad you like it.\n"
+  },
+  {
+    "user_msg": "what is my name",
+    "bot_msg": "I don't know your name. You haven't told me yet.\n"
+  },
+  {
+    "user_msg": "should i tell u",
+    "bot_msg": "Tell me what?\n"
+  },
+  {
+    "user_msg": "my name is shrijan",
+    "bot_msg": "Okay, Shrijan, it's nice to meet you!\n"
+  },
+  {
+    "user_msg": "what is my name",
+    "bot_msg": "I do not have access to personal information and I don't have memory of our past conversations. Could you please tell me your name?\n"
+  },
+  {
+    "user_msg": "hii",
+    "bot_msg": "Hi there! How can I help you today?\n"
+  },
+  {
+    "user_msg": "my name is shrijan",
+    "bot_msg": "Hello Shrijan! It's nice to meet you. How can I help you today?\n"
+  },
+  {
+    "user_msg": "what is my name",
+    "bot_msg": "I do not have access to your personal information and cannot determine your name. You have not provided it to me during our conversation.\n"
+  },
+  {
+    "user_msg": "my name is shrijan",
+    "bot_msg": "It's nice to meet you, Shrijan! How can I help you today?\n"
+  },
+  {
+    "user_msg": "what is my name",
+    "bot_msg": "I'm sorry, but I don't know your name. You haven't told me your name yet.\n"
+  }
+]

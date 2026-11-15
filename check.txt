@@ -1,0 +1,35 @@
+QueryX/
+│
+├── server.js                 # Main entry point (was index.js)
+│
+├── /routes                    # All route files
+│   ├── chatRoutes.js          # Chat-related routes
+│   ├── authRoutes.js          # Google OAuth login/logout
+│   ├── fileRoutes.js          # File upload & QnA
+│   └── historyRoutes.js       # Chat history & clearing
+│
+├── /controllers               # Logic for each feature
+│   ├── chatController.js
+│   ├── authController.js
+│   ├── fileController.js
+│   └── historyController.js
+│
+├── /models                     # Database interaction
+│   └── historyModel.js
+│
+├── /middlewares                # Custom middleware
+│   ├── ensureAuth.js           # Check if user is logged in
+│   └── errorHandler.js         # Handle server errors
+│
+├── /config                     # Configurations like DB
+│   └── db.js
+│
+├── /public                      # Static files (CSS, JS, images)
+│
+├── /views                       # EJS templates
+│
+├── /uploads                     # Temporary uploaded files
+│
+├── .env
+├── package.json
+└── .gitignore

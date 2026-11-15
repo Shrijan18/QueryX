@@ -1,0 +1,152 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="one">
+        <div class="two">
+            <div class="child1">
+                <div class="four">
+                    <div class="flexing">
+                        <img src="/images/logo.png" alt="">
+                        <a href="" class="anchor"> QueryX </a>
+                    </div>
+                    <button id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Close sidebar" aria-label="Close sidebar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                            <path d="M9 3v18"></path>
+                            <path d="m14 9-3 3 3 3"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="six">
+                    <ul>
+                        <li class="flexing"><img src="/images/arr.png" alt=""><a href="/index" class="anchor">
+                                New Chat </a></li>
+                        <li class="flexing"><img src="/images/pen.png" alt=""><a href="/prompts" class="anchor"> Prompts
+                            </a></li>
+                        <li class="flexing"><img src="/images/doc.png" alt=""><a href="/documents" class="anchor">
+                                Documents </a></li>
+                        <li class="flexing"><img src="/images/history.png" alt=""><a href="/history" class="anchor">
+                                History </a></li>
+                    </ul>
+                </div>
+
+                <div class="seven flexing">
+                    <img src="/images/search.png" alt="">
+                    <form action="/submit-search-history" method="post">
+                        <label for="search-history"></label>
+                        <input type="text" placeholder="Search" class="my-input">
+                    </form>
+                </div>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="pro-upgrade-area">
+                    <button id="upgradeProBtn" class="pro-upgrade-btn">
+                        ✨ Upgrade to QueryX Pro
+                    </button>
+
+                    <span id="proStatus" class="pro-status">Free Plan</span>
+                </div>
+
+                <div class="child2">
+                    <div class="userLogo"></div>
+                    <div class="child3">
+                        <%= username %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="sidebarOpenBtn" class="sidebar-open-btn" title="Open sidebar" aria-label="Open sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                <path d="M9 3v18"></path>
+                <path d="m13 15 3-3-3-3"></path>
+            </svg>
+        </button>
+
+        <div class="three">
+            <nav>
+                <div class="nine">
+                    <div>
+                        <button onclick="change_theme()" class="theme-toggle">🌙</button>
+                    </div>
+                    <div>
+                        <img src="/images/settings.png" onclick="" alt="">
+                    </div>
+                </div>
+            </nav>
+
+            <div class="mainBody">
+                <div id="top-response" class="top-center-response"></div>
+
+                <div class="mainBody4">
+                    <div>
+                        <img src="/images/logo-big.png" alt="">
+                        <p>Hello, <span class="child4">
+                                <%= username %>
+                            </span></p>
+
+                        <p>How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-box" id="chat-box"></div>
+
+            <div class="mainBody5">
+                <div id="file-preview-bar" class="file-preview-bar" style="display: none;">
+                    <span>📎</span>
+                    <span id="file-preview-name" class="file-preview-name"></span>
+                    <button id="file-remove-btn" class="file-remove-btn" type="button" title="Remove attachment">&times;</button>
+                </div>
+
+                <!-- Upload Button -->
+                <label for="file-upload" class="upload-btn" title="Attach file">📎</label>
+                <input type="file" id="file-upload" style="display: none;" accept=".pdf,.docx,.txt,.png,.jpg,.jpeg,.webp">
+
+                <!-- Message Input -->
+                <input name="search-query" type="text" placeholder="Send the message" class="my-input1" id="search-query" autocomplete="off">
+
+                <!-- Send Button -->
+                <button class="Btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="proModal" class="pro-modal">
+        <div class="pro-modal-content">
+            <button id="closeProModal" class="pro-close">&times;</button>
+
+            <div class="pro-icon">✦</div>
+            <h2>Upgrade to QueryX Pro</h2>
+            <p>Unlock the Pro plan for 30 days.</p>
+
+            <div class="pro-price">
+                <span>₹99</span>
+                <small>/ 30 days</small>
+            </div>
+
+            <ul>
+                <li>30 days of QueryX Pro access</li>
+                <li>One-time payment</li>
+                <li>No automatic renewal</li>
+            </ul>
+
+            <button id="buyProBtn" class="pro-buy-btn">
+                Buy QueryX Pro – ₹99
+            </button>
+
+            <p class="pro-secure-text">Secure payment powered by Razorpay</p>
+            <p id="proPaymentMessage"></p>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        const userName = "<%= username || '' %>";
+    </script>
+
+    <script src="/script.js"></script>
+    <%- include("partials/footer.ejs") %>

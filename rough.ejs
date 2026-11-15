@@ -1,0 +1,156 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="one">
+        <div class="two">
+            <div class="child1">
+                <div class="four">
+                    <div class="flexing">
+                        <img src="/images/logo.png" alt="">
+                        <a href="/" class="anchor"> QueryX </a>
+                    </div>
+                    <img src="/images/edit.png" alt="">
+                </div>
+
+                <div class="six">
+                    <ul>
+                        <li class="flexing"><img src="/images/arr.png" alt=""><a href="/index" class="anchor">
+                                New Chat </a></li>
+                        <li class="flexing"><img src="/images/pen.png" alt=""><a href="/prompts" class="anchor"> Prompts
+                            </a></li>
+                        <li class="flexing"><img src="/images/doc.png" alt=""><a href="/documents" class="anchor">
+                                Documents </a></li>
+                        <li class="flexing"><img src="/images/history.png" alt=""><a href="/history" class="anchor">
+                                History </a></li>
+                    </ul>
+                </div>
+
+                <div class="seven flexing">
+                    <img src="/images/search.png" alt="">
+                    <form action="/submit-search-history" method="post">
+                        <label for="search-history"></label>
+                        <input type="text" placeholder="Search" class="my-input">
+                    </form>
+                </div>
+            </div>
+            <div class="child2">
+                <div class="userLogo"></div>
+                <div class="child3">
+                    USERNAME
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="three history">
+            <div class="head">
+                <h2>Chat History</h2>
+                <!-- <button onclick="clearHistory()">Clear History</button> -->
+            </div>
+            <% const groupedHistory={}; fault.forEach((item)=> {
+                const dateKey = new Date(item.created_at).toLocaleDateString("en-CA", {
+                timeZone: "Asia/Kolkata"
+                });
+
+                if (!groupedHistory[dateKey]) {
+                groupedHistory[dateKey] = [];
+                }
+
+                groupedHistory[dateKey].push(item);
+                });
+
+                const today = new Date().toLocaleDateString("en-CA", {
+                timeZone: "Asia/Kolkata"
+                });
+
+                const yesterdayDate = new Date();
+                yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+
+                const yesterday = yesterdayDate.toLocaleDateString("en-CA", {
+                timeZone: "Asia/Kolkata"
+                });
+                %>
+                <% if (fault && fault.length> 0) { %>
+
+                    <% Object.keys(groupedHistory).forEach((dateKey)=> { %>
+
+                        <% let heading=new Date(dateKey + "T00:00:00" ) .toLocaleDateString("en-IN", { day: "numeric" ,
+                            month: "long" , year: "numeric" }); if (dateKey===today) heading="Today" ; else if
+                            (dateKey===yesterday) heading="Yesterday" ; %>
+
+                            <div class="history-day">
+
+                                <h3 class="history-date">
+                                    <%= heading %>
+                                </h3>
+
+                                <% groupedHistory[dateKey].forEach((item)=> { %>
+
+                                    <div class="history-message-group">
+
+                                        <div class="user-message-time">
+                                            <%= new Date(item.created_at).toLocaleTimeString( "en-IN" , {
+                                                timeZone: "Asia/Kolkata" , hour: "2-digit" , minute: "2-digit" , hour12:
+                                                true } ) %>
+                                        </div>
+
+                                        <p class="message user">
+                                            <b>Ques:<br></b>
+                                            <%= item.user_msg %>
+                                        </p>
+
+                                        <p class="message bot">
+                                            <b>Solution:<br></b>
+                                            <%= item.bot_msg %>
+                                        </p>
+
+                                    </div>
+
+                                    <% }); %>
+
+                            </div>
+
+                            <% }); %>
+
+                                <% } else { %>
+
+                                    <p>No chat history available.</p>
+
+                                    <% } %>
+        </div>
+    </div>
+
+    <script>
+        let userName = localStorage.getItem("userName");
+        document.querySelector(".child3").innerText = userName;
+
+        const firstLetter = (userName || "").trim().charAt(0);
+        document.querySelector(".userLogo").innerText = firstLetter.toUpperCase();
+    </script>
+    <%- include("partials/footer.ejs") %>
+
+
+
+        <% if (fault && fault.length> 0) { %>
+            <% fault.forEach((item)=> { %>
+                <div class="chat-box">
+                    <div class="chat-date">
+                        <%= new Date(item.created_at).toLocaleString("en-IN", { day: "2-digit" , month: "short" ,
+                            year: "numeric" , hour: "2-digit" , minute: "2-digit" , hour12: true }) %>
+                    </div>
+                    <p class="message user"><b>Ques:<br></b>
+                        <%= item.user_msg %>
+                    </p><br>
+                    <p class="message bot">
+                        <b>Solution:<br></b>
+                        <%= item.bot_msg %>
+                            <!-- <%= item.bot_msg && Object.keys(item.bot_msg).length> 0 
+                                ? JSON.stringify(item.bot_msg)
+                                : "No response yet." %>  -->
+                    </p>
+                </div><br>
+                <hr><br>
+                <% }); %>
+                    <% } else { %>
+                        <p>No chat history available.</p>
+                        <% } %>
