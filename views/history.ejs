@@ -109,15 +109,15 @@
                                                 true } ) %>
                                         </div>
 
-                                        <p class="message user">
+                                        <div class="message user">
                                             <b>Ques:<br></b>
-                                            <%= item.user_msg %>
-                                        </p>
+                                            <div class="user-text"><%= item.user_msg %></div>
+                                        </div>
 
-                                        <p class="message bot">
+                                        <div class="message bot">
                                             <b>Solution:<br></b>
-                                            <%= item.bot_msg %>
-                                        </p>
+                                            <div class="bot-content" data-raw="<%= encodeURIComponent(item.bot_msg) %>"></div>
+                                        </div>
 
                                     </div>
 
@@ -137,10 +137,31 @@
 
     <script>
         let userName = "<%= username || '' %>";
-        document.querySelector(".child3").innerText = userName;
+        if (document.querySelector(".child3")) {
+            document.querySelector(".child3").innerText = userName;
+        }
 
         const firstLetter = (userName || "").trim().charAt(0);
-        document.querySelector(".userLogo").innerText = firstLetter.toUpperCase();
+        if (document.querySelector(".userLogo")) {
+            document.querySelector(".userLogo").innerText = firstLetter.toUpperCase();
+        }
+
+        // Render Markdown & Highlight Code in History view
+        document.querySelectorAll(".bot-content[data-raw]").forEach((el) => {
+            try {
+                const raw = decodeURIComponent(el.getAttribute("data-raw") || "");
+                el.innerHTML = (typeof marked !== "undefined" && marked.parse)
+                    ? marked.parse(raw)
+                    : raw;
+                if (typeof hljs !== "undefined") {
+                    el.querySelectorAll("pre code").forEach((block) => {
+                        hljs.highlightElement(block);
+                    });
+                }
+            } catch (err) {
+                console.error("Markdown parse error:", err);
+            }
+        });
     </script>
     <script src="/script.js"></script>
     <%- include("partials/footer.ejs") %>

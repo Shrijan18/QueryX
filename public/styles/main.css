@@ -258,6 +258,67 @@ nav {
     border-bottom-left-radius: 2px;
 }
 
+.chat-box .bot pre {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    overflow-x: auto;
+    margin: 12px 0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.chat-box .bot pre code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 14.5px;
+    background: transparent !important;
+    padding: 0 !important;
+    color: inherit;
+}
+
+.chat-box .bot code:not(pre code) {
+    background: rgba(0, 0, 0, 0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+.chat-box .bot p {
+    margin: 8px 0;
+}
+
+.chat-box .bot p:first-child {
+    margin-top: 0;
+}
+
+.chat-box .bot p:last-child {
+    margin-bottom: 0;
+}
+
+.chat-box .bot ul,
+.chat-box .bot ol {
+    margin: 8px 0 8px 22px;
+    padding-left: 0;
+}
+
+.chat-box .bot li {
+    margin: 4px 0;
+}
+
+.chat-box .bot h1,
+.chat-box .bot h2,
+.chat-box .bot h3,
+.chat-box .bot h4 {
+    margin: 14px 0 6px 0;
+    font-weight: 700;
+}
+
+.chat-box .bot hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    margin: 12px 0;
+}
+
 /* ---------- Bottom Input Bar (Exact Original Styling) ---------- */
 .mainBody5 {
     display: flex;
