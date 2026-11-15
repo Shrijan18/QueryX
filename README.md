@@ -130,7 +130,7 @@ Stores user messages and corresponding bot responses mapped to user accounts wit
 ```sql
 CREATE TABLE history (
     id SERIAL PRIMARY KEY,
-    user_msg VARCHAR(255) NOT NULL,
+    user_msg TEXT NOT NULL,
     bot_msg TEXT NOT NULL,
     users_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -354,7 +354,7 @@ flowchart TD
    -- Chat History Table
    CREATE TABLE history (
        id SERIAL PRIMARY KEY,
-       user_msg VARCHAR(255) NOT NULL,
+       user_msg TEXT NOT NULL,
        bot_msg TEXT NOT NULL,
        users_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
